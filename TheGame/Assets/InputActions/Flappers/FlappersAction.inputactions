@@ -79,7 +79,7 @@
             "id": "4eadc1f1-dfba-49c9-a450-15740d23c200",
             "actions": [
                 {
-                    "name": "Rotate",
+                    "name": "Dash",
                     "type": "Button",
                     "id": "eb02ec48-84e7-4b55-a5ee-d60f301d8785",
                     "expectedControlType": "",
@@ -96,7 +96,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Rotate",
+                    "action": "Dash",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

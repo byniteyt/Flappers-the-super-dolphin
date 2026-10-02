@@ -37,14 +37,19 @@ public class Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //rigidBody.linearVelocity =Vector3.Cross(new Vector3(movement.x, 0, movement.y) * speed, transform.forward) ;
-        rigidBody.linearVelocity = new Vector3(movement.x, 0, movement.y) * speed;
+        Vector3 direction = transform.right * movement.x + transform.forward * movement.y;
+
+        direction.Normalize();
+
+        rigidBody.linearVelocity = direction * speed;
     }
     private void RotatePlayer(InputAction.CallbackContext context)
     {
         if (context.performed && !isRotating)
         {
-            StartCoroutine(Rotate360());
+            Vector3 mov = new Vector3(movement.x, 0, movement.y);
+            rigidBody.AddForce(mov * 10 * speed, ForceMode.Impulse);
+            //StartCoroutine(Rotate360());
         }
     }
 
@@ -55,7 +60,7 @@ public class Movement : MonoBehaviour
         float elapsed = 0f;
         float duration = 0.1f;
         float totalRotation = 360f;
-        rigidBody.AddForce(movement * 10 * speed, ForceMode.Impulse);
+
         Vector2 dir = movement;
         while (elapsed < duration)
         {
