@@ -11,11 +11,16 @@ public class FlappersReciever : MonoBehaviour, I_FlappersReciever
 
     public float power;
     public float MaxPower;
+    public float speed = 5f;
+
+    Rigidbody rigidBody;
 
     [SerializeField] Slider slider;
 
     private void Awake()
     {
+        rigidBody = transform.GetComponent<Rigidbody>();
+
         normalFlappers = GetComponentInChildren<NormalFlapperController>();
         buffFlappers = GetComponentInChildren<BuffFlappers>();
 
@@ -38,7 +43,7 @@ public class FlappersReciever : MonoBehaviour, I_FlappersReciever
 
     public void Move(Vector2 dir) 
     {
-        
+        rigidBody.linearVelocity = dir * speed;
     }
 
     public void Attack() 

@@ -101,6 +101,82 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Tornado",
+            "id": "36876106-c838-434a-a2e4-d4d6f8f5fcf3",
+            "actions": [
+                {
+                    "name": "Simple",
+                    "type": "Button",
+                    "id": "e880a6d7-e1aa-48cf-997d-cc9da18ca709",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Tap",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Hold",
+                    "type": "Button",
+                    "id": "8f713ded-e496-4cd7-a5a1-1ecdcb287427",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Hold",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "c92b2f1e-6d7f-440d-b18e-b487979636da",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Simple",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cd72c206-6751-4cfb-add5-3545274a7f78",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Hold",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Buff",
+            "id": "cea26f1e-a185-42e6-b186-2a23732341ff",
+            "actions": [
+                {
+                    "name": "Buff",
+                    "type": "Button",
+                    "id": "2c660f5b-13b8-4ff1-9a80-9960dcd2336e",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "6563a4c3-b50e-41e1-ae27-a41a893909d7",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Buff",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []
