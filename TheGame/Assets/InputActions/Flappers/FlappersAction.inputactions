@@ -139,6 +139,17 @@
                 },
                 {
                     "name": "",
+                    "id": "28d1f0d3-f5e2-491e-86fd-80e18460b851",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Simple",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "cd72c206-6751-4cfb-add5-3545274a7f78",
                     "path": "<Keyboard>/f",
                     "interactions": "",
@@ -170,6 +181,17 @@
                     "id": "6563a4c3-b50e-41e1-ae27-a41a893909d7",
                     "path": "<Keyboard>/e",
                     "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Buff",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f821c367-dd09-4e9d-840d-1003313a5b4b",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "Press",
                     "processors": "",
                     "groups": "",
                     "action": "Buff",

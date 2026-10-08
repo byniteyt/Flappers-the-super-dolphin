@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,17 +10,18 @@ public class FlappersReciever : MonoBehaviour, I_FlappersReciever
 
     [SerializeField] bool buff;
 
+    [Header("Referencias")]
+    [SerializeField] Transform cameraTransform;
+
+    [Header("Stats")]
     public float power;
     public float MaxPower;
     public float speed = 5f;
-
-    Rigidbody rigidBody;
 
     [SerializeField] Slider slider;
 
     private void Awake()
     {
-        rigidBody = transform.GetComponent<Rigidbody>();
 
         normalFlappers = GetComponentInChildren<NormalFlapperController>();
         buffFlappers = GetComponentInChildren<BuffFlappers>();
@@ -43,7 +45,13 @@ public class FlappersReciever : MonoBehaviour, I_FlappersReciever
 
     public void Move(Vector2 dir) 
     {
-        rigidBody.linearVelocity = dir * speed;
+        
+        if (buff)
+        {
+            buffFlappers.Move(dir);
+            return;
+        }
+        normalFlappers.Move(dir);
     }
 
     public void Attack() 
@@ -53,7 +61,8 @@ public class FlappersReciever : MonoBehaviour, I_FlappersReciever
 
     public void Dash() 
     {
-        
+        Rigidbody rigidBody = GetComponent<Rigidbody>();
+        rigidBody.AddForce(rigidBody.linearVelocity * 10, ForceMode.Impulse);
     }
 
     public void Buff() 

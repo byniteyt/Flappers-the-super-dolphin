@@ -3,7 +3,7 @@ using UnityEngine;
 public class BuffFlappers : MonoBehaviour
 {
     Timer timer = new Timer(5);
-
+    I_MoveHandler moveHandler;
     public int Cost;
 
     FlappersReciever reciever;
@@ -11,6 +11,7 @@ public class BuffFlappers : MonoBehaviour
     private void Awake()
     {
         reciever = GetComponentInParent<FlappersReciever>();
+        moveHandler = GetComponent<I_MoveHandler>();
     }
 
     private void OnEnable()
@@ -30,6 +31,10 @@ public class BuffFlappers : MonoBehaviour
 
     public void Dash() 
     {
-        
+
+    }
+    public void Move(Vector2 dir)
+    {
+        moveHandler.Move(dir);
     }
 }

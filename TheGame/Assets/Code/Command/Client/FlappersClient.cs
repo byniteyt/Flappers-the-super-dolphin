@@ -17,8 +17,6 @@ public class FlappersClient : MonoBehaviour
     [SerializeField] InputActionReference movementInput;
     [SerializeField] InputActionReference interactionInput;
 
-    [Header("Referencias")]
-    [SerializeField] Transform cameraTransform;
 
     void Start()
     {
@@ -29,34 +27,32 @@ public class FlappersClient : MonoBehaviour
     {
         simpleAttack.action.performed += ctx => invoker.Execute(new TornadoCommandPress(reciever));
         holdAttack.action.performed += ctx => invoker.Execute(new TornadoCommandHold(reciever));
+        holdAttack.action.canceled += ctx => invoker.Execute(new TornadoCommandRelease(reciever));
         buff.action.performed += ctx => invoker.Execute(new BuffCommand(reciever));
-        //interactionInput.action.performed += Dash;
+        movementInput.action.canceled += ctx => invoker.Execute(new MoveCommand
+            (reciever, Vector2.zero));
+        movementInput.action.performed += ctx => invoker.Execute(new MoveCommand
+            (reciever, movementInput.action.ReadValue<Vector2>()));
+        //interactionInput.action.performed += ctx => invoker.Execute(new DashCommand(reciever));
+        interactionInput.action.performed += ctx => Dash();
     }
 
     private void OnDisable()
     {
         simpleAttack.action.performed -= ctx => invoker.Execute(new TornadoCommandPress(reciever));
         holdAttack.action.performed -= ctx => invoker.Execute(new TornadoCommandHold(reciever));
+        holdAttack.action.canceled -= ctx => invoker.Execute(new TornadoCommandRelease(reciever));
         buff.action.performed -= ctx => invoker.Execute(new BuffCommand(reciever));
-        //interactionInput.action.performed -= Dash;
+        movementInput.action.performed -= ctx => invoker.Execute(new MoveCommand
+            (reciever, movementInput.action.ReadValue<Vector2>()));
+        movementInput.action.canceled -= ctx => invoker.Execute(new MoveCommand
+            (reciever, Vector2.zero));
+        interactionInput.action.performed -= ctx => Dash();
+    }
+    public void Dash()
+    {
+        Rigidbody rigidBody = GetComponent<Rigidbody>();
+        rigidBody.AddForce(rigidBody.linearVelocity * 10, ForceMode.Impulse);
     }
 
-    void Update()
-    {
-        movement = movementInput.action.ReadValue<Vector2>();
-    }
-
-    private void FixedUpdate()
-    {
-        Vector2 dir = cameraTransform.right * movement.x + cameraTransform.forward * movement.y;
-        invoker.Execute(new MoveCommand(reciever,dir));
-    }
-    /*
-    private void Dash(InputAction.CallbackContext context)
-    {
-        if (context.performed && !isDashing)
-        {
-            rigidBody.AddForce(rigidBody.linearVelocity * 10, ForceMode.Impulse);
-        }
-    }*/
 }

@@ -56,6 +56,7 @@ public class TornadoHandler : MonoBehaviour
         if (pressing && controller.power > 0) 
         {
             controller.power -= Time.deltaTime;
+            Debug.Log("Power: " + controller.power);
 
             if (controller.power <= 0) 
             {
