@@ -14,23 +14,21 @@ namespace EnemyPatrol
         {
             //if (!isMoving) return;
             Collider[] objs = Physics.OverlapSphere(transform.position, patrolDetection);
-            bool playerDetected = false;
             foreach (var item in objs)
             {
                 if (item.gameObject.CompareTag("Player"))
                 {
-                    playerDetected = true;
                     body.ActiveChaseState();
                 }
             }
-            Debug.Log("IsPlayer " + playerDetected);
-            rigidbody.MovePosition(Vector3.MoveTowards(
+            rigidbody.linearVelocity = (currentTarget - body.transform.position).normalized * speed;
+            /*rigidbody.MovePosition(Vector3.MoveTowards(
                 body.transform.position,
                 currentTarget,
                 speed * Time.fixedDeltaTime
-            ));
+            ));*/
 
-            if ((body.transform.position - currentTarget).sqrMagnitude <= 0.05f * 0.05f)
+            if ((body.transform.position - currentTarget).sqrMagnitude <= 0.5f)
             {
                 isMoving = false;
                 GlobalCoroutiner.Instance.RunCoroutine(WaitAndFlip());

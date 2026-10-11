@@ -51,5 +51,10 @@ public abstract class AEnemyState : ScriptableObject, IEnemyState
     {
         // Handle trigger stay event
     }
+
+    public virtual void OnHit(Vector3 hitDirection)
+    {
+        throw new System.NotImplementedException();
+    }
     #endregion
 }

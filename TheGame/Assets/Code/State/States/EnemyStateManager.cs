@@ -84,12 +84,12 @@ public class EnemyStateManager : AEnemy
     }
 
     private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Enemigo"))
+    {/*
+        if (collision.gameObject.CompareTag("Enemy"))
         {
             Vector3 bestDirection = (transform.position - collision.transform.position).normalized;
             GetComponent<Rigidbody2D>().AddForce(bestDirection * 2, ForceMode2D.Force);
-        }
+        }*/
         currentState.OnCollisionEnter(collision);
     }
 
@@ -234,6 +234,11 @@ public class EnemyStateManager : AEnemy
             currentState.Exit();
 
         currentState = null;
+    }
+
+    public void OnHit(Vector3 hitDirection)
+    {
+        currentState.OnHit(hitDirection);
     }
 
 }
