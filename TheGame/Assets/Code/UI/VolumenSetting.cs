@@ -11,35 +11,43 @@ public class VolumenSetting : MonoBehaviour
 
     public void SetGlobalVolume(float volume)
     {
-        audioMixer.SetFloat("GlobalVolume", Mathf.Log10(volume) * 20);
-        PlayerPrefs.SetFloat("GameVolume", volume);
+        audioMixer.SetFloat("GeneralVol",
+            volume <= 0.0001f ? -80f : Mathf.Log10(volume) * 20f);
+
+        PlayerPrefs.SetFloat("GeneralVol", volume);
     }
+
     public void SetMusicVolume(float volume)
     {
-        audioMixer.SetFloat("MusicVolume", Mathf.Log10(volume) * 20);
-        PlayerPrefs.SetFloat("MusicVolume", volume);
+        audioMixer.SetFloat("MusicVol",
+            volume <= 0.0001f ? -80f : Mathf.Log10(volume) * 20f);
+
+        PlayerPrefs.SetFloat("MusicVol", volume);
     }
+
     public void SetEffectsVolume(float volume)
     {
-        audioMixer.SetFloat("EffectsVolume", Mathf.Log10(volume) * 20);
-        PlayerPrefs.SetFloat("EffectsVolume", volume);
+        audioMixer.SetFloat("EffectsVol",
+            volume <= 0.0001f ? -80f : Mathf.Log10(volume) * 20f);
+
+        PlayerPrefs.SetFloat("EffectsVol", volume);
     }
 
     void LoadGeneralVolume() 
     {
-        generalSlider.value = PlayerPrefs.GetFloat("GameVolume", 1f);
+        generalSlider.value = PlayerPrefs.GetFloat("GeneralVol", 1f);
         SetGlobalVolume(generalSlider.value);
     }
 
     void LoadMusicVolume()
     {
-        musicSlider.value = PlayerPrefs.GetFloat("MusicVolume", 1f);
+        musicSlider.value = PlayerPrefs.GetFloat("MusicVol", 1f);
         SetMusicVolume(musicSlider.value);
     }
 
     void LoadSfxVolume()
     {
-        sfxSlider.value = PlayerPrefs.GetFloat("EffectsVolume", 1f);
+        sfxSlider.value = PlayerPrefs.GetFloat("EffectsVol", 1f);
         SetEffectsVolume(sfxSlider.value);
     }
     private void Awake()

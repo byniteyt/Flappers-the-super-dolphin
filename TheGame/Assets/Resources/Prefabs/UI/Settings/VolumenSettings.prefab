@@ -175,6 +175,7 @@ MonoBehaviour:
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -294,7 +295,7 @@ GameObject:
   - component: {fileID: 3604215697306336979}
   - component: {fileID: 1012218764715706830}
   m_Layer: 5
-  m_Name: GeneralVolSlider
+  m_Name: SFXVolSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -599,6 +600,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -772,6 +774,7 @@ MonoBehaviour:
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -1003,7 +1006,7 @@ GameObject:
   - component: {fileID: 5796450862738342034}
   - component: {fileID: 2439043515420336188}
   m_Layer: 5
-  m_Name: GeneralVolSlider
+  m_Name: MusicVolSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1187,7 +1190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3faef0c1a83ee2849a721078259a5a06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VolumenSetting
-  audioMixer: {fileID: 24100000, guid: ea5e9fa54cb599147bc4d2c9f3477d3c, type: 2}
+  audioMixer: {fileID: 24100000, guid: f0ffbb777f3173f41a50e11ab343b9a8, type: 2}
   generalSlider: {fileID: 6465917606723776029}
   musicSlider: {fileID: 2439043515420336188}
   sfxSlider: {fileID: 1012218764715706830}
@@ -1546,6 +1549,7 @@ MonoBehaviour:
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
